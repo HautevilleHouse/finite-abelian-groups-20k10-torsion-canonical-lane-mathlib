@@ -1,0 +1,19 @@
+import canonicalLaneMathlib.AdmissibleClass
+import FiniteAbelianGroups20k10TorsionCanonicalLaneLean.FiniteAbelianGroupStructure
+import FiniteAbelianGroups20k10TorsionCanonicalLaneLean.TorsionFreeRank
+import FiniteAbelianGroups20k10TorsionCanonicalLaneLean.InvariantFactors
+import FiniteAbelianGroups20k10TorsionCanonicalLaneLean.ElementaryDivisors
+import FiniteAbelianGroups20k10TorsionCanonicalLaneLean.DualGroup
+
+namespace HautevilleHouse
+namespace FiniteAbelianGroups20k10TorsionCanonicalLaneLean
+
+def ConstrainedTorsionClosure (A : AdmissibleClass) : Prop :=
+  bridgeClosed A ∧ gateClosed A
+
+theorem constrained_torsion_endgame (A : AdmissibleClass) :
+    ConstrainedTorsionClosure A := by
+  exact And.intro (bridge_from_admissible_class A) (gate_from_admissible_class A)
+
+end FiniteAbelianGroups20k10TorsionCanonicalLaneLean
+end HautevilleHouse
